@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.Country;
@@ -32,14 +31,6 @@ public class CountryController {
             return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
         }
     }
-    // @GetMapping("/range-id")
-    // public ResponseEntity<?> findByRangeId(@RequestParam Integer idStart, @RequestParam Integer idEnd) {
-    //      try {
-    //         return ResponseEntity.ok(countryService.getAllCustomByRangeId(idStart,idEnd));
-    //     } catch (Exception e) {
-    //         return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
-    //     }
-    // }
 
     @GetMapping("/{countryId}")
     public ResponseEntity<?> findById(@PathVariable("countryId") Integer countryId) {
