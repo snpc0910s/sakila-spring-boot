@@ -32,6 +32,15 @@ public class CountryController {
         }
     }
 
+    @GetMapping("/impl-repo")
+    public ResponseEntity<?> impl() {
+        try {
+            return ResponseEntity.ok(countryService.getAllCustomByRangeId());
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
+        }
+    }
+
     @GetMapping("/{countryId}")
     public ResponseEntity<?> findById(@PathVariable("countryId") Integer countryId) {
         try {

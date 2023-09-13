@@ -9,14 +9,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.entity.Country;
-import com.example.demo.repo.CountryRepo;
+import com.example.demo.repo.CountryRepository;
 import com.example.demo.services.ICountryService;
 
 @Service
 public class CountryServiceImpl implements ICountryService {
 
     @Autowired
-    private CountryRepo countryRepo;
+    private CountryRepository countryRepo;
 
     @Transactional(readOnly = true)
     @Override
@@ -63,8 +63,8 @@ public class CountryServiceImpl implements ICountryService {
     }
 
     @Override
-    public List<Country> getAllCustomByRangeId(Integer idStart, Integer idEnd) {
-        return new ArrayList<>();// countryRepo.getAllCustomByRangeId(idStart, idEnd);
+    public List<Country> getAllCustomByRangeId() {
+        return countryRepo.getAllCustomByRangeId();
     }
 }
 

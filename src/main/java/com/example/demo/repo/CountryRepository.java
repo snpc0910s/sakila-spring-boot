@@ -8,6 +8,6 @@ import com.example.demo.entity.Country;
 import com.example.demo.repo.custom.ICountryRepoCustom;
 
 @Repository
-public interface CountryRepo extends JpaRepository<Country,Integer>, ICountryRepoCustom{
+public interface CountryRepository extends JpaRepository<Country,Integer>, ICountryRepoCustom{
     
 }

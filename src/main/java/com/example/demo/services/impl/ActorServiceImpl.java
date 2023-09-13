@@ -4,9 +4,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.demo.dto.ActorDTO;
 import com.example.demo.entity.Actor;
 import com.example.demo.repo.ActorRepo;
 import com.example.demo.services.IActorService;
@@ -61,6 +64,16 @@ public class ActorServiceImpl implements IActorService {
             return actorRepo.findById(o.getActorId());
         }
         return Optional.empty();
+    }
+
+    @Override
+    public List<ActorDTO> selectSomeField() {
+        return actorRepo.selectSomeField();
+    }
+
+    @Override
+    public Page<Actor> paging(Pageable pageable) {
+        return actorRepo.paging(pageable);
     }
 }
 

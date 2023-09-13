@@ -2,7 +2,10 @@ package com.example.demo.controller;
 
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.Actor;
@@ -19,6 +23,8 @@ import com.example.demo.services.IActorService;
 @RestController
 @RequestMapping("/api/actor")
 public class ActorController {
+
+    private static Logger LOGGER = LoggerFactory.getLogger(ActorController.class);
 
     @Autowired
     private IActorService actorService;
@@ -65,6 +71,25 @@ public class ActorController {
             return new ResponseEntity<>("Update error", HttpStatus.BAD_REQUEST);
         } catch (Exception e) {
             return new ResponseEntity<>("Server error", HttpStatus.BAD_GATEWAY);
+        }
+    }
+
+    @GetMapping("/some-field")
+    public ResponseEntity<?> selectSomeField() {
+        try {
+            return ResponseEntity.ok(actorService.selectSomeField());
+        } catch (Exception e) {
+            LOGGER.error(e.toString());
+            return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
+        }
+    }
+    @GetMapping("/page")
+    public ResponseEntity<?> selectSomeField(@RequestParam Integer page, @RequestParam Integer size) {
+        try {
+            return ResponseEntity.ok(actorService.paging(PageRequest.of(page, size)));
+        } catch (Exception e) {
+            LOGGER.error(e.toString());
+            return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
         }
     }
 }

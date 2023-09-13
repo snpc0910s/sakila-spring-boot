@@ -11,7 +11,7 @@ import com.example.demo.entity.City;
 import com.example.demo.entity.Country;
 import com.example.demo.exception.ObjectNotFoundException;
 import com.example.demo.repo.CityRepo;
-import com.example.demo.repo.CountryRepo;
+import com.example.demo.repo.CountryRepository;
 import com.example.demo.services.ICityService;
 
 @Service
@@ -21,7 +21,7 @@ public class CityServiceImpl implements ICityService {
     private CityRepo cityRepo;
     
     @Autowired
-    private CountryRepo countryRepo;
+    private CountryRepository countryRepo;
 
 
     @Transactional(readOnly = true)

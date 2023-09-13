@@ -54,22 +54,22 @@ public class ApplicationSecurity extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
-        // http.authorizeRequests().anyRequest().permitAll();
+        http.authorizeRequests().anyRequest().permitAll();
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         
-        http.authorizeRequests()
-                .antMatchers("/api/auth/login").permitAll()
-                .antMatchers("/api/auth/signup").permitAll()
-                .anyRequest().authenticated();
+        // http.authorizeRequests()
+        //         .antMatchers("/api/auth/login").permitAll()
+        //         .antMatchers("/api/auth/signup").permitAll()
+        //         .anyRequest().authenticated();
         
-        // handling exception 401
-        http.exceptionHandling()
-                .authenticationEntryPoint(
-                        (request, response, ex) -> {
-                            response.sendError(
-                                    HttpServletResponse.SC_UNAUTHORIZED,
-                                    ex.getMessage());
-                        });
-        http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
+        // // handling exception 401
+        // http.exceptionHandling()
+        //         .authenticationEntryPoint(
+        //                 (request, response, ex) -> {
+        //                     response.sendError(
+        //                             HttpServletResponse.SC_UNAUTHORIZED,
+        //                             ex.getMessage());
+        //                 });
+        // http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
     }
 }

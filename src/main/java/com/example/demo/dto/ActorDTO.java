@@ -1,5 +1,4 @@
 package com.example.demo.dto;
-import java.util.Date;
 
 public class ActorDTO {
     private Integer actorId;
@@ -8,9 +7,14 @@ public class ActorDTO {
 
     private String lastName;
 
-    private Date lastUpdate;
-
-	// getter and setter
+	public ActorDTO(Integer actorId, String firstName, String lastName) {
+        this.actorId = actorId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    public ActorDTO() {
+    }
+    // getter and setter
     public Integer getActorId() {
         return actorId;
     }
@@ -28,12 +32,6 @@ public class ActorDTO {
     }
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-    public Date getLastUpdate() {
-        return lastUpdate;
-    }
-    public void setLastUpdate(Date lastUpdate) {
-        this.lastUpdate = lastUpdate;
     }
     
 }

@@ -16,6 +16,6 @@ public interface ICountryService {
 
     public Optional<Country> update(Integer countryId, Country saveCountry);
 
-    public List<Country> getAllCustomByRangeId(Integer idStart, Integer idEnd);
+    public List<Country> getAllCustomByRangeId();
 }
 
