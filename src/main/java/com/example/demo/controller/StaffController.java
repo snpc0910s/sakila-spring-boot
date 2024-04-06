@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import javax.annotation.security.RolesAllowed;
 
+import com.example.demo.base.BaseConst;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +20,7 @@ import com.example.demo.entity.Staff;
 import com.example.demo.services.IStaffService;
 
 @RestController
-@RequestMapping("/api/staff")
+@RequestMapping(BaseConst.BASE_API + "/staff")
 public class StaffController {
 
     @Autowired

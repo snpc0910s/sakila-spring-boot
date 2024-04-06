@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import java.util.Optional;
 
+import com.example.demo.base.BaseConst;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +18,7 @@ import com.example.demo.entity.Country;
 import com.example.demo.services.ICountryService;
 
 @RestController
-@RequestMapping("/api/country")
+@RequestMapping(BaseConst.BASE_API + "/country")
 public class CountryController {
 
     @Autowired

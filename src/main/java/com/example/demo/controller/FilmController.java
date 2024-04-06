@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import java.util.Optional;
 
+import com.example.demo.base.BaseConst;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +18,7 @@ import com.example.demo.entity.Film;
 import com.example.demo.services.IFilmService;
 
 @RestController
-@RequestMapping("/api/film")
+@RequestMapping(BaseConst.BASE_API + "/film")
 public class FilmController {
 
     @Autowired

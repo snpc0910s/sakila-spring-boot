@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import java.util.Optional;
 
+import com.example.demo.base.BaseConst;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ import com.example.demo.entity.Actor;
 import com.example.demo.services.IActorService;
 
 @RestController
-@RequestMapping("/api/actor")
+@RequestMapping(BaseConst.BASE_API + "/actor")
 public class ActorController {
 
     private static Logger LOGGER = LoggerFactory.getLogger(ActorController.class);

@@ -1,11 +1,4 @@
 FROM openjdk:8-jdk-alpine
-
 WORKDIR /app
-
-COPY .mvn/ .mvn
-COPY mvnw pom.xml ./
-RUN ./mvnw dependency:resolve
-
-COPY src ./src
-
-CMD ["./mvnw", "spring-boot:run"]
+COPY target/sakila-demo-1.0.0.jar sakila-demo-1.0.0.jar
+CMD ["java","-jar","sakila-demo-1.0.0.jar"]
