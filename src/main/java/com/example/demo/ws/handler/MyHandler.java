@@ -10,12 +10,12 @@ import java.util.List;
 
 public class MyHandler extends TextWebSocketHandler {
 
-    public List<WebSocketSession> list = new ArrayList<>();
+//    public List<WebSocketSession> list = new ArrayList<>();
 
     @Override
     public void handleTextMessage(WebSocketSession session, TextMessage message) throws IOException, InterruptedException {
         System.out.println("Test message {}" +  message.toString());
-        list.add(session);
+//        list.add(session);
         session.sendMessage( new TextMessage("Hello world"));
         Thread.sleep(1000);
     }

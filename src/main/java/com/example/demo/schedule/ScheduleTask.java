@@ -20,10 +20,10 @@ public class ScheduleTask {
     public void scheduleTaskCallMeEveryMinute() {
         log.info("Execute time: {} :  Every minute",dateTimeFormatter.format(LocalDateTime.now()));
     }
-    @Scheduled(cron="*/10 * * * * ?")
-    public void scheduleTaskCallMeTenSecond() {
-        log.info("Execute time: {} : Every ten second",dateTimeFormatter.format(LocalDateTime.now()));
-    }
+//    @Scheduled(cron="*/10 * * * * ?")
+//    public void scheduleTaskCallMeTenSecond() {
+//        log.info("Execute time: {} : Every ten second",dateTimeFormatter.format(LocalDateTime.now()));
+//    }
 
     @Bean
     public TaskScheduler taskScheduler() {

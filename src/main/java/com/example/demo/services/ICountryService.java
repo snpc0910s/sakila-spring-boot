@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.example.demo.entity.Country;
+import com.example.demo.repo.custom.impl.dto.CountryCityAddressDto;
 
 public interface ICountryService {
     public List<Country> findAll();
@@ -17,5 +18,7 @@ public interface ICountryService {
     public Optional<Country> update(Integer countryId, Country saveCountry);
 
     public List<Country> getAllCustomByRangeId();
+
+    public List<CountryCityAddressDto> getListByCityNameDSQL(String countryName);
 }
 
