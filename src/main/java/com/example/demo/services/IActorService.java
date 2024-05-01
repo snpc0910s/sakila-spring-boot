@@ -20,8 +20,5 @@ public interface IActorService {
 
     public Optional<Actor> update(Integer actorId, Actor saveActor);
 
-    public List<ActorDTO> selectSomeField();
-
-    public Page<Actor> paging(Pageable pageable);
 }
 

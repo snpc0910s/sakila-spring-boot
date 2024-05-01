@@ -32,14 +32,6 @@ public class FilmController {
             return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
         }
     }
-    @GetMapping("/test")
-    public ResponseEntity<?> testCustomQuery() {
-        try {
-            return ResponseEntity.ok(filmService.testCustomQuery());
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
-        }
-    }
     @GetMapping("/{filmId}")
     public ResponseEntity<?> findById(@PathVariable("filmId") Integer filmId) {
         try {

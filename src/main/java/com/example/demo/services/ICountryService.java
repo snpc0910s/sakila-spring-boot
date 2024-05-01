@@ -3,8 +3,10 @@ package com.example.demo.services;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Pageable;
+
 import com.example.demo.entity.Country;
-import com.example.demo.repo.custom.impl.dto.CountryCityAddressDto;
+
 
 public interface ICountryService {
     public List<Country> findAll();
@@ -16,9 +18,7 @@ public interface ICountryService {
     public Optional<Country> insert(Country saveCountry);
 
     public Optional<Country> update(Integer countryId, Country saveCountry);
-
-    public List<Country> getAllCustomByRangeId();
-
-    public List<CountryCityAddressDto> getListByCityNameDSQL(String countryName);
+//
+//    public List<Country> getDynamicWhereCondition(Country country, Pageable page);
 }
 

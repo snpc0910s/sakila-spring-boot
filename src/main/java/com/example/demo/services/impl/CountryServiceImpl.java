@@ -4,20 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import com.example.demo.repo.custom.impl.dto.CountryCityAddressDto;
+import com.example.demo.repo.CountryRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.entity.Country;
-import com.example.demo.repo.CountryRepository;
 import com.example.demo.services.ICountryService;
 
 @Service
 public class CountryServiceImpl implements ICountryService {
 
     @Autowired
-    private CountryRepository countryRepo;
+    private CountryRepo countryRepo;
 
     @Transactional(readOnly = true)
     @Override
@@ -62,16 +62,11 @@ public class CountryServiceImpl implements ICountryService {
         }
         return Optional.empty();
     }
-
-    @Transactional(readOnly = true)
-    @Override
-    public List<Country> getAllCustomByRangeId() {
-        return countryRepo.getListCustomByRangeId();
-    }
-    @Transactional(readOnly = true)
-    @Override
-    public List<CountryCityAddressDto> getListByCityNameDSQL(String cityName) {
-        return countryRepo.getListByCityNameDSQL(cityName);
-    }
+//
+//    @Transactional(readOnly = true)
+//    @Override
+//    public List<Country> getDynamicWhereCondition(Country country, Pageable page) {
+//        return countryRepo.getDynamicWhereCondition(country,page);
+//    }
 }
 

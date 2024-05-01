@@ -3,6 +3,7 @@ package com.example.demo.services.impl;
 import java.util.List;
 import java.util.Optional;
 
+import com.example.demo.repo.CountryRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,7 +12,6 @@ import com.example.demo.entity.City;
 import com.example.demo.entity.Country;
 import com.example.demo.exception.ObjectNotFoundException;
 import com.example.demo.repo.CityRepo;
-import com.example.demo.repo.CountryRepository;
 import com.example.demo.services.ICityService;
 
 @Service
@@ -21,7 +21,7 @@ public class CityServiceImpl implements ICityService {
     private CityRepo cityRepo;
     
     @Autowired
-    private CountryRepository countryRepo;
+    private CountryRepo countryRepo;
 
 
     @Transactional(readOnly = true)

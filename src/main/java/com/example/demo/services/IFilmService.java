@@ -15,7 +15,5 @@ public interface IFilmService {
     public Optional<Film> insert(Film saveFilm);
 
     public Optional<Film> update(Integer filmId, Film saveFilm);
-
-    public List<Film> testCustomQuery();
 }
 

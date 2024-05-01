@@ -65,15 +65,5 @@ public class ActorServiceImpl implements IActorService {
         }
         return Optional.empty();
     }
-
-    @Override
-    public List<ActorDTO> selectSomeField() {
-        return actorRepo.selectSomeField();
-    }
-
-    @Override
-    public Page<Actor> paging(Pageable pageable) {
-        return actorRepo.paging(pageable);
-    }
 }
 

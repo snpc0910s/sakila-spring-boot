@@ -95,11 +95,5 @@ public class FilmServiceImpl implements IFilmService {
         throw new ObjectNotFoundException("Language is not exist.");
     }
 
-    @Override
-    public List<Film> testCustomQuery() {
-        // return filmRepo.findByReleaseYearAndRentalDurationBetween(2006, 7, 7);
-        // return filmRepo.findByReleaseYearOrLength(2005, 63);
-        return filmRepo.findByNameLanguage("GERMAN");
-    }
 }
 

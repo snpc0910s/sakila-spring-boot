@@ -74,23 +74,4 @@ public class ActorController {
             return new ResponseEntity<>("Server error", HttpStatus.BAD_GATEWAY);
         }
     }
-
-    @GetMapping("/some-field")
-    public ResponseEntity<?> selectSomeField() {
-        try {
-            return ResponseEntity.ok(actorService.selectSomeField());
-        } catch (Exception e) {
-            LOGGER.error(e.toString());
-            return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
-        }
-    }
-    @GetMapping("/page")
-    public ResponseEntity<?> selectSomeField(@RequestParam Integer page, @RequestParam Integer size) {
-        try {
-            return ResponseEntity.ok(actorService.paging(PageRequest.of(page, size)));
-        } catch (Exception e) {
-            LOGGER.error(e.toString());
-            return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
-        }
-    }
 }
