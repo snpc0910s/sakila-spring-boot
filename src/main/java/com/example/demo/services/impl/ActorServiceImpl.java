@@ -65,5 +65,10 @@ public class ActorServiceImpl implements IActorService {
         }
         return Optional.empty();
     }
+
+    @Override
+    public List<Actor> dynamicSearch(Actor actor, Pageable page) {
+        return actorRepo.dynamicSearch(actor, page);
+    }
 }
 

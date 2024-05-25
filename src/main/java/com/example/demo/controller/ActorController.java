@@ -6,6 +6,7 @@ import com.example.demo.base.BaseConst;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -73,5 +74,12 @@ public class ActorController {
         } catch (Exception e) {
             return new ResponseEntity<>("Server error", HttpStatus.BAD_GATEWAY);
         }
+    }
+    @PostMapping("/dynamic-search")
+    public ResponseEntity<?> dynamicSearch(@RequestParam(value = "size", defaultValue = "10") String size,
+                                           @RequestParam(value = "page" ,defaultValue = "0") String page,
+                                           @RequestBody Actor actor) {
+        return ResponseEntity.ok(actorService.dynamicSearch(actor, PageRequest.of(Integer.valueOf(page),Integer.valueOf(size))));
+
     }
 }

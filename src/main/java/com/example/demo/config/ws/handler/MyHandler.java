@@ -1,12 +1,10 @@
-package com.example.demo.ws.handler;
+package com.example.demo.config.ws.handler;
 
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class MyHandler extends TextWebSocketHandler {
 

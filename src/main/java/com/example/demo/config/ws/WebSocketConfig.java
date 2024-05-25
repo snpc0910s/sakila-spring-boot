@@ -1,6 +1,6 @@
 package com.example.demo.config.ws;
 
-import com.example.demo.ws.handler.MyHandler;
+import com.example.demo.config.ws.handler.MyHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.socket.WebSocketHandler;

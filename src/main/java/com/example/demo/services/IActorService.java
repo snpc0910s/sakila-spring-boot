@@ -20,5 +20,6 @@ public interface IActorService {
 
     public Optional<Actor> update(Integer actorId, Actor saveActor);
 
+    public List<Actor> dynamicSearch(Actor actor, Pageable page);
 }
 

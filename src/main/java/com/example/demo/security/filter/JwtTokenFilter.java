@@ -10,7 +10,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.example.demo.ultility.SecurityUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -26,6 +29,8 @@ import com.example.demo.repo.UserRepo;
 import com.example.demo.ultility.JwtTokenUtil;
 
 @Component
+@Order(1)
+@Slf4j
 public class JwtTokenFilter extends OncePerRequestFilter {
 
     @Autowired
@@ -37,7 +42,7 @@ public class JwtTokenFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
-            
+            log.info("Filter JWT");
             // 1.not exist bearer token when request 
             if(!hasaAuthorizationBearer(request)) {
                 filterChain.doFilter(request, response);

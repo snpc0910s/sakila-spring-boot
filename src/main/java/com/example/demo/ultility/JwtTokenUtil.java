@@ -29,7 +29,7 @@ public class JwtTokenUtil {
     public String generateAccessString(User user) {
         return Jwts.builder()
                 .setSubject(String.format("%s,%s", user.getUserId(), user.getEmail()))
-                .setIssuer("CodeJava")
+                .setIssuer("snpc0910")
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRE_DURATION))
                 .signWith(SignatureAlgorithm.HS512, SECRET_KEY)
